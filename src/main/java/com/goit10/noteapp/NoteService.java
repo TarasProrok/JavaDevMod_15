@@ -16,5 +16,17 @@ public class NoteService {
         return note;
     }
 
+    public void deleteById (long id) {
+        notesList.remove(id);
+    }
 
+    public Note upgradeById (Note note) {
+        long idNote = note.getId();
+        notesList.put(idNote, note);
+        return note;
+    }
+
+    public Note getById (long id) {
+        return notesList.get(id);
+    }
 }
