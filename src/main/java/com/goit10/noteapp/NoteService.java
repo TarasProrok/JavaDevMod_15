@@ -1,8 +1,11 @@
 package com.goit10.noteapp;
 
+import org.springframework.stereotype.Service;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Service
 public class NoteService {
     Map<Long, Note> notesList = new HashMap<>();
 
@@ -20,10 +23,13 @@ public class NoteService {
         notesList.remove(id);
     }
 
-    public Note upgradeById (Note note) {
+    public void upgradeById (Note note) {
         long idNote = note.getId();
-        notesList.put(idNote, note);
-        return note;
+        if (notesList.containsKey(idNote)) {
+            notesList.put(idNote, note);
+        } else {
+            throw new IllegalArgumentException("There is no note with such id!");
+        }
     }
 
     public Note getById (long id) {
