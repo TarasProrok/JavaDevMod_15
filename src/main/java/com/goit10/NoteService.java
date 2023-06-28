@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 @Service
 public class NoteService {
@@ -14,7 +15,8 @@ public class NoteService {
     }
 
     public Note add(Note note) {
-        note.setId((note.getContent()).hashCode());
+        Random random = new Random();
+        note.setId(random.nextLong());
         notesList.put(note.getId(), note);
         return note;
     }
@@ -24,12 +26,7 @@ public class NoteService {
     }
 
     public void upgradeById (Note note) {
-        long idNote = note.getId();
-        if (notesList.containsKey(idNote)) {
-            notesList.put(idNote, note);
-        } else {
-            throw new IllegalArgumentException("There is no note with such id!");
-        }
+        notesList.put(note.getId(), note);
     }
 
     public Note getById (long id) {
