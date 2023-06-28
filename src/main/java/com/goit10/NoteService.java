@@ -1,4 +1,4 @@
-package com.goit10.noteapp;
+package com.goit10;
 
 import org.springframework.stereotype.Service;
 

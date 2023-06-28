@@ -1,14 +1,13 @@
-package com.goit10.noteapp;
+package com.goit10;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JavaDeveloperNoteAppApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JavaDeveloperNoteAppApplication.class, args);
-
+		SpringApplication.run(Application.class, args);
 	}
 
 }
