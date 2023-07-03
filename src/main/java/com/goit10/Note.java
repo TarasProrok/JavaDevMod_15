@@ -10,6 +10,8 @@ import lombok.Data;
 public class Note {
     @Id
     private long id;
+
     private String title;
+
     private String content;
 }
