@@ -1,0 +1,5 @@
+CREATE TABLE note (
+id INTEGER PRIMARY KEY,
+title VARCHAR (255),
+content VARCHAR (5000)
+)

@@ -1,13 +1,27 @@
 package com.goit10;
 
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+@RequiredArgsConstructor
 @Service
 public class NoteService {
+    private final NoteRepository noteRepository;
+
+    @PostConstruct
+            public void init() {
+        System.out.println("noteRepository.getClass() = " + noteRepository.getClass());
+    }
+
+    public List<Note> findAll() {
+        return noteRepository.findAll();
+    }
     Map<Long, Note> notesList = new HashMap<>();
 
     public Map<Long, Note> listAll() {
